@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #outer_most {
+            display: none;
+        }
+
+        .branch {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .outer {
+            display: flex;
+            justify-content: center;
+            z-index: 0;
+        }
+
+        #parent {
+            /* position: absolute; */
+            /* display: none; */
+
+            /* display: block; */
+        }
+
+        .branch1 {
+            margin-top: 13px;
+            height: 0px;
+            width: 0px;
+            border: 150px solid green;
+            border-bottom-right-radius: 50% 50px;
+            border-bottom-left-radius: 50% 50px;
+            border-top: 0px transparent;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+        }
+
+        .branch2 {
+            margin-top: -80px;
+            height: 0px;
+            width: 0px;
+            border: 200px solid green;
+            border-bottom-right-radius: 50% 50px;
+            border-bottom-left-radius: 50% 50px;
+            border-top: 0px transparent;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            /* z-index: -1; */
+        }
+
+        .branch3 {
+            margin-top: -120px;
+            height: 0px;
+            width: 0px;
+            border: 250px solid green;
+            border-bottom-right-radius: 50% 50px;
+            border-bottom-left-radius: 50% 50px;
+            border-top: 0px transparent;
+            border-left: 180px solid transparent;
+            border-right: 180px solid transparent;
+            /* z-index: -2; */
+        }
+
+        /* .base{
+            margin-top: -5px;
+            height: 100px;
+            width: 0;
+            border: 50px solid brown;
+            border-bottom-left-radius: 50% 40px;
+            border-bottom-right-radius: 50% 40px;
+            border-top-right-radius: 100%;
+            border-top-left-radius: 100%;
+            z-index: -3;
+        } */
+        .base {
+            margin-top: -5px;
+            height: 0px;
+            border-bottom: 150px solid brown;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            width: 100px;
+            z-index: -1;
+
+        }
+
+        .star {
+            margin-top: 5px;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid red;
+            position: relative;
+        }
+
+        .star:after {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 50px solid red;
+            position: absolute;
+            content: "";
+            top: 14px;
+            left: -25px;
+        }
+
+        /* merry_christmas */
+
+        .merry_christmas {
+            /* margin-top: 84vh; */
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            width: 100%;
+        }
+
+        .merry {
+            color: red;
+            font-size: 60px;
+            text-shadow: 0px 0px 50px red,
+                2px 2px 50px red,
+                4px 4px 50px red,
+                6px 6px 50px red,
+                8px 8px 50px red;
+            margin-bottom: 0;
+        }
+
+        .christmas {
+            color: green;
+            font-size: 55px;
+            text-shadow: 0px 0px 50px green,
+                2px 2px 50px green,
+                4px 4px 50px green,
+                6px 6px 50px green,
+                8px 8px 50px green;
+            margin-top: 5px;
+        }
+
+        .btn_div {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .btn_div::after {
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 10px;
+            font-weight: 700;
+            background-color: black;
+            color: white;
+            border: 5px solid white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 15px 10px red;
+            text-shadow: 0px 0px 15px red,
+                5px 5px 15px red,
+                -5px -5px 15px red;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="outer_most">
+        <div class="outer">
+            <div id="parent">
+                <div class="branch star"></div>
+                <div class="branch branch1"></div>
+                <div class="branch branch2"></div>
+                <div class="branch branch3"></div>
+                <div class="branch base"></div>
+            </div>
+        </div>
+        <div class="merry_christmas">
+            <h1 class="merry">MERRY</h1>
+            <h1 class="christmas">CHRISTMAS</h1>
+        </div>
+    </div>
+
+    <div class="btn_div">
+        <button class="btn" onclick="display_wish()">CLICK HERE</button>
+    </div>
+
+
+
+
+    <!-- <div id="trial" style="display: none;">
+        <h1>hello</h1>
+        <h2>hello</h2>
+    </div> -->
+    <!-- <button onclick="trial1()">Click here</button> -->
+
+
+
+    <script>
+
+        const display_wish = () => {
+            let show = document.getElementById("outer_most");
+            // show.style.display = 'none'
+            if (show.style.display === 'block') {
+                show.style.display = 'none';
+                console.log('display none')
+            }
+            else {
+                show.style.display = 'block'
+                console.log("display block")
+            }
+        }
+
+
+        // const trial1 = () => {
+        //     let letter = document.getElementById('trial');
+        //     trial.style.display = 'block';
+        // }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
